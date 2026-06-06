@@ -1,0 +1,6 @@
+{
+  "name": "Blog Platform",
+  "description": "A fully functional, polished full-stack blogging platform supporting registration, JWT authentication, blog creation, editing, deletion, comments, searching, and filtering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

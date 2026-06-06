@@ -1,0 +1,100 @@
+{
+  "users": [
+    {
+      "id": "admin_seeder",
+      "name": "Elena Rostova",
+      "email": "elena@blogplatform.dev",
+      "passwordHash": "$2b$10$sJOa8u1pYQ8tjhwtAO4OveyCHWV.RWLLR0Nl3.cmwc.xG1xttFxsy",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80",
+      "bio": "Lead Developer & Architect. Writing about software design, typography, and building robust web applications.",
+      "role": "admin",
+      "createdAt": "2026-05-07T11:32:23.492Z"
+    },
+    {
+      "id": "author_marcus",
+      "name": "Marcus Chen",
+      "email": "marcus@blogplatform.dev",
+      "passwordHash": "$2b$10$sJOa8u1pYQ8tjhwtAO4OveyCHWV.RWLLR0Nl3.cmwc.xG1xttFxsy",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80",
+      "bio": "Tech minimalist and UX designer. Exploring the intersection between humane technology and elegant coding.",
+      "role": "user",
+      "createdAt": "2026-05-17T11:32:23.492Z"
+    }
+  ],
+  "blogs": [
+    {
+      "id": "blog_1",
+      "title": "The Art of Minimalist Web Design",
+      "excerpt": "How reducing layout noise, selecting thoughtful typography, and embracing negative space creates intuitive, eye-pleasing user journeys.",
+      "content": "## Embracing Simplicity in Modern Interfaces\n\nIn an era dominated by information overload, minimalist web design is no longer a mere aesthetic preference; it is a critical requirement for usability. When we stripping away unnecessary design clutter, we don't just make things look better—we create a clear pathway for the user's focus.\n\n### 1. The Power of Generous Negative Space\nWhitespace (or negative space) is the breathing room of a layout. It is the silence between notes that makes music. Without whitespace, elements compete with each other for attention, creating cognitive fatigue.\n- **Improved Scannability**: Giving core text lines extra margin allows users to glide their eyes effortlessly.\n- **Visual Hierarchy**: Larger spacing around headers naturally emphasizes their importance without needing extreme font sizes.\n\n### 2. Intentional Typography Pairings\nTypography is the voice of your application. Choosing a bold, clean Display font (like **Space Grotesk** or **Outfit**) paired with an incredibly legible body font (like **Inter**) establishes a distinct brand voice instantly.\nKeep font families to a maximum of two, and rely on carefully chosen weights (e.g., Light, Medium, Semibold) to build contrast.\n\n### 3. Functional Color Palettes\nMinimalist design relies on a restricted palette. A perfect setup includes:\n- **Primary Canvas**: Soft, eye-safe off-whites or subtle deep charcoals.\n- **Text**: Dark gray or charcoal instead of harsh pure black to reduce strain.\n- **Accent**: A singular, high-contrast, beautiful accent color to highlight critical interactivity or CTAs (e.g., a dynamic forest green or a classic royal blue).\n\nBy aligning layout density with human psychological limits, we honor the user's attention. Remember: *Design is not what it looks like and feels like. Design is how it works.*",
+      "coverImage": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80",
+      "authorId": "author_marcus",
+      "authorName": "Marcus Chen",
+      "authorAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80",
+      "tags": [
+        "Design",
+        "Minimalism",
+        "WebDev"
+      ],
+      "likes": [
+        "admin_seeder"
+      ],
+      "views": 342,
+      "comments": [
+        {
+          "id": "comment_1",
+          "blogId": "blog_1",
+          "authorName": "Elena Rostova",
+          "authorEmail": "elena@blogplatform.dev",
+          "authorAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80",
+          "content": "This is brilliant, Marcus. The concept of negative space as \"the silence between notes\" is a perfect analogy. Thanks for this excellent piece!",
+          "createdAt": "2026-05-22T11:32:23.492Z"
+        }
+      ],
+      "createdAt": "2026-05-19T11:32:23.492Z",
+      "updatedAt": "2026-05-19T11:32:23.492Z"
+    },
+    {
+      "id": "blog_2",
+      "title": "Building Type-Safe Full-Stack Apps in 2026",
+      "excerpt": "A comprehensive guide on establishing end-to-end type safety across client React components and Node.js-Express servers without over-engineering.",
+      "content": "## Why End-to-End Type Safety Matters\n\nWhen building modern full-stack systems, context switches between client-side rendering and server-side processing are notorious hotspots for architectural bugs. A simple typo in a response property on the server can break components on the client undetected by traditional unit tests.\n\n### Establishing the Single-Truth Contract\n\nThe most robust approach to solving this transition gap is maintaining a shared or unified typing file. The contract includes:\n1. **Request Payloads**: Strictly typing what the server expects.\n2. **Response Interfaces**: Sharing schema objects like `User`, `BlogPost`, and `Comment`.\n\n```typescript\nexport interface BlogPost {\n  id: string;\n  title: string;\n  excerpt: string;\n  content: string;\n  tags: string[];\n}\n```\n\n### Client Data Fetching with Explicit Generics\n\nWhen requesting endpoints via client-side fetch, do not leave responses as `any`. Use wrapper utilities or React hooks to enforce type checking:\n\n```typescript\nasync function fetchApi<T>(url: string, options?: RequestInit): Promise<T> {\n  const res = await fetch(url, options);\n  if (!res.ok) throw new Error(`API Failure: ${res.statusText}`);\n  return res.json() as Promise<T>;\n}\n```\n\nBy ensuring data matches compiler structures from database schema to UI render loops, we eliminate an entire class of runtime errors.",
+      "coverImage": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=80",
+      "authorId": "admin_seeder",
+      "authorName": "Elena Rostova",
+      "authorAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80",
+      "tags": [
+        "TypeScript",
+        "NodeJS",
+        "React"
+      ],
+      "likes": [],
+      "views": 189,
+      "comments": [],
+      "createdAt": "2026-05-27T11:32:23.492Z",
+      "updatedAt": "2026-05-27T11:32:23.492Z"
+    },
+    {
+      "id": "blog_3",
+      "title": "The Blueprint for High-Performance Node Backend APIs",
+      "excerpt": "Deep-dive into API optimization techniques, efficient database reads, memory-sensitive operations, and graceful error handling strategies.",
+      "content": "## Designing APIs Ready for Ingress Scale\n\nFor server-side applications written in Node.js, high throughput depends heavily on keeping the main event-loop non-blocking. Let us review the fundamental architectural blueprints for performant backend Express interfaces.\n\n### 1. Streaming and Memory Management\nWhen returning database cursors or large record collections, avoid mapping large datasets directly in memory.\n- Prefer pagination and cursor limits.\n- Buffer and process only the exact slice of data the user requests.\n\n### 2. Standardized Error Middlewares\nAvoid scattered, unstructured `try-catch` statements returning random error codes. Establish a robust global error handler in Express:\n\n```typescript\napp.use((err: Error, req: Request, res: Response, next: NextFunction) => {\n  console.error(err.stack);\n  res.status(500).json({ error: 'Internal Server Error', message: err.message });\n});\n```\n\nThis standard ensures all responses retain consistent schema contracts, guaranteeing client-side integrations remain uniform under all conditions.",
+      "coverImage": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1000&q=80",
+      "authorId": "admin_seeder",
+      "authorName": "Elena Rostova",
+      "authorAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80",
+      "tags": [
+        "NodeJS",
+        "API",
+        "Backend"
+      ],
+      "likes": [
+        "author_marcus"
+      ],
+      "views": 125,
+      "comments": [],
+      "createdAt": "2026-06-01T11:32:23.492Z",
+      "updatedAt": "2026-06-01T11:32:23.492Z"
+    }
+  ]
+}
